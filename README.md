@@ -82,6 +82,7 @@ DNS: Set a public DNS like 8.8.8.8 or a local DNS server if available.
 
 
 **IMPLEMENTATION**
+
 Action 1 - Build Physical Topology 
 - Place routers, switches, APs, PCs, and printers.
 - Wire serial links between routers (DCE on the side you choose) and Ethernet links from routers to switches.
@@ -122,5 +123,52 @@ Action 11 - Set all other Hosts to DHCP and Connect to WiFi where Applicable
 Action 12 - Test Connectivity
 - Ping between VLANs, across floors, and test remote SSH access to routers (SSH from Test-PC).
 - Validate printers and WiFi clients are reachable.
+
+
+
+
+**DEVICE CONFIGURATION STEPS**
+Router (each floor)
+- Configure router hostname and banner.
+- Configure Ethernet interface connected to switch as trunk (use subinterfaces with encapsulation dot1Q for each VLAN present on that floor) and assign gateway IPs.
+- Configure serial interfaces for the three /30 links; set clock rate on the DCE end.
+- Configure DHCP pools for local VLANs (network, default-router, dns-server).
+- Configure OSPF (process id 1) and advertise connected networks; use no auto-summary if needed.
+- Configure local username(s) and SSH (generate rsa keys, set domain-name, allow v2).
+
+Switch (each floor)
+- Create VLANs required for that floor.
+- Assign access ports (PCs, printers, AP) to appropriate VLANs.
+- Configure trunk to the router for VLANs.
+- Enable port-security on IT switch fa0/1: sticky MAC, max 1, violation shutdown.
+
+Wireless AP
+- Configure SSID and security; ensure the AP uplink port is in expected VLAN.
+
+Hosts and Printers
+- Set to DHCP. For WiFi clients, join correct SSID and enter passphrase.
+
+
+
+
+**VERIFICATION COMMANDS AND EXPECTED OUTCOMES**
+
+Routers
+- show ip interface brief (subinterfaces and serial interfaces should be up with correct IPs).
+- show ip ospf neighbor — OSPF neighbors established between routers.
+- show ip route — OSPF learned routes for all VLAN networks on other routers.
+- show ip dhcp binding — DHCP leases distributed to hosts.
+- show running-config — verify SSH, OSPF, DHCP, and subinterfaces.
+
+Switches
+- show vlan brief — VLAN membership per port.
+- show interfaces trunk — trunk status and allowed VLANs.
+- show port-security interface fa0/1 (IT switch) — port-security learned MAC and violation status.
+
+Hosts
+- ipconfig /all or Packet Tracer Desktop -> IP Configuration — show DHCP-assigned IP and default gateway.
+- Ping across VLANs and to routers' default gateways.
+- From Test-PC, SSH to each router's IP to verify remote login.
+
 
 
