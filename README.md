@@ -35,18 +35,12 @@ Design and Implement a Modern Hotel Network. The hotel has three floors; in the 
 
 
 **DEVICE AND EQUIPMENT**
-Routers (3x 2811) — Router_Floor1, Router_Floor2, Router_Floor3 (all placed in IT server room location visually)
-
-Switches (3x 2960) — Switch_Floor1, Switch_Floor2, Switch_Floor3
-
-Wireless APs or Wireless Routers for each floor (one AP per floor)
-
-PCs/Laptops and Phones for departments (one or more per department)
-
-Printers (one per department)
-
-Test-PC in IT department
-
+- Routers (3x 2811) — Router_Floor1, Router_Floor2, Router_Floor3 (all placed in IT server room location visually)
+- Switches (3x 2960) — Switch_Floor1, Switch_Floor2, Switch_Floor3
+- Wireless APs or Wireless Routers for each floor (one AP per floor)
+- PCs/Laptops and Phones for departments (one or more per department)
+- Printers (one per department)
+- Test-PC in IT department
 
 
 **TOPOLOGY**
