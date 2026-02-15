@@ -149,18 +149,18 @@ Hosts and Printers
 
 Routers
 - show ip interface brief (subinterfaces and serial interfaces should be up with correct IPs).
-- show ip ospf neighbor — OSPF neighbors established between routers.
-- show ip route — OSPF learned routes for all VLAN networks on other routers.
-- show ip dhcp binding — DHCP leases distributed to hosts.
-- show running-config — verify SSH, OSPF, DHCP, and subinterfaces.
+- show ip ospf neighbor (OSPF neighbors established between routers).
+- show ip route (OSPF learned routes for all VLAN networks on other routers).
+- show ip dhcp binding (DHCP leases distributed to hosts).
+- show running-config (verify SSH, OSPF, DHCP, and subinterfaces).
 
 Switches
-- show vlan brief — VLAN membership per port.
-- show interfaces trunk — trunk status and allowed VLANs.
-- show port-security interface fa0/1 (IT switch) — port-security learned MAC and violation status.
+- show vlan brief (VLAN membership per port).
+- show interfaces trunk (trunk status and allowed VLANs).
+- show port-security interface fa0/1 (IT switch) port-security learned MAC and violation status.
 
 Hosts
-- ipconfig /all or Packet Tracer Desktop -> IP Configuration — show DHCP-assigned IP and default gateway.
+- ipconfig /all or Packet Tracer Desktop -> IP Configuration (show DHCP-assigned IP and default gateway).
 - Ping across VLANs and to routers' default gateways.
 - From Test-PC, SSH to each router's IP to verify remote login.
 
