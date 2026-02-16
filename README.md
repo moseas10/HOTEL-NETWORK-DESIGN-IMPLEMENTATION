@@ -44,6 +44,7 @@ Design and Implement a Modern Hotel Network. The hotel has three floors; in the 
 
 
 **TOPOLOGY**
+<img width="733" height="462" alt="image" src="https://github.com/user-attachments/assets/a2d505a7-c2a6-4e8a-82b9-421ed04a3c5a" />
 
 
 **IP ADDRESSING & VLAN PLAN**
